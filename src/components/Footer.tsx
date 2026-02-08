@@ -6,77 +6,95 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-black/50 border-t border-gray-800 py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
-          <div className="space-y-4">
+    <footer className="w-full bg-black border-t border-gray-800/50 py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Main footer grid */}
+        <div className="grid md:grid-cols-5 gap-10 md:gap-12 mb-16 pb-16 border-b border-gray-800/50">
+          {/* Brand column */}
+          <div className="md:col-span-2 space-y-6">
             <div className="flex items-center gap-3">
               <Image
                 src="https://i.imgur.com/0jsGt7u.png"
                 alt="FDP Logo"
-                width={32}
-                height={32}
+                width={40}
+                height={40}
+                className="w-10 h-10"
               />
               <div>
-                <h3 className="font-bold text-white">$FDP</h3>
-                <p className="text-xs text-gray-500">Flying Drone Pig</p>
+                <h3 className="font-black text-lg text-white">$FDP</h3>
+                <p className="text-xs text-gray-500 uppercase tracking-wider">Flying Drone Pig</p>
               </div>
             </div>
-            <p className="text-sm text-gray-400">
-              When pigs fly… electricity stops.
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+              When pigs fly, electricity stops. A memecoin on Solana built for believers in the impossible.
             </p>
+            <div className="pt-4">
+              <p className="text-xs text-gray-600 uppercase tracking-wider font-semibold mb-3">Follow Us</p>
+              <a
+                href="https://x.com/i/communities/2019793810058838275"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-6 py-2 border border-gray-800 rounded-lg text-sm font-semibold text-gray-400 hover:text-accent-pink hover:border-accent-pink transition-all duration-300"
+              >
+                X Community
+              </a>
+            </div>
           </div>
 
-          {/* Links */}
+          {/* Navigation */}
           <div>
-            <h4 className="font-bold text-white mb-4">Navigation</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-black text-white mb-6 uppercase tracking-widest text-sm">Navigation</h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a href="#home" className="text-gray-400 hover:text-white transition-smooth">
+                <a href="#home" className="text-gray-400 hover:text-white transition-colors duration-300">
                   Home
                 </a>
               </li>
               <li>
-                <a href="#news" className="text-gray-400 hover:text-white transition-smooth">
+                <a href="#news" className="text-gray-400 hover:text-white transition-colors duration-300">
                   News
                 </a>
               </li>
               <li>
-                <a href="#quotes" className="text-gray-400 hover:text-white transition-smooth">
-                  Quotes
+                <a href="#wisdom" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Wisdom
                 </a>
               </li>
               <li>
-                <a href="#token" className="text-gray-400 hover:text-white transition-smooth">
-                  Token Info
+                <a href="#gallery" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Gallery
+                </a>
+              </li>
+              <li>
+                <a href="#token" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  Token
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Trading */}
           <div>
-            <h4 className="font-bold text-white mb-4">Resources</h4>
-            <ul className="space-y-2 text-sm">
-              <li>
-                <a
-                  href="https://dexscreener.com/solana/Bb91m32WUmYPe7qwwNB4vB757dXfRXuEHRho14KLWo2D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-smooth"
-                >
-                  DEXscreener
-                </a>
-              </li>
+            <h4 className="font-black text-white mb-6 uppercase tracking-widest text-sm">Trading</h4>
+            <ul className="space-y-3 text-sm">
               <li>
                 <a
                   href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-smooth"
+                  className="text-gray-400 hover:text-accent-pink transition-colors duration-300"
                 >
                   Pump.fun
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://dexscreener.com/solana/Bb91m32WUmYPe7qwwNB4vB757dXfRXuEHRho14KLWo2D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-accent-blue transition-colors duration-300"
+                >
+                  DEXscreener
                 </a>
               </li>
               <li>
@@ -84,7 +102,7 @@ export default function Footer() {
                   href="https://solana.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-smooth"
+                  className="text-gray-400 hover:text-accent-gold transition-colors duration-300"
                 >
                   Solana
                 </a>
@@ -92,92 +110,39 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Community */}
+          {/* Blockchain */}
           <div>
-            <h4 className="font-bold text-white mb-4">Community</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="font-black text-white mb-6 uppercase tracking-widest text-sm">Blockchain</h4>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a
-                  href="https://x.com/i/communities/2019793810058838275"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-smooth"
-                >
-                  X Community
-                </a>
+                <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Network</p>
+                <p className="text-gray-300">Solana (SOL)</p>
               </li>
               <li>
-                <a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-smooth"
-                >
-                  Twitter
-                </a>
+                <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Token Type</p>
+                <p className="text-gray-300">SPL Token</p>
               </li>
               <li>
-                <p className="text-gray-500 text-xs mt-3">
-                  More channels coming soon
-                </p>
+                <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-2">Speed</p>
+                <p className="text-gray-300">~400ms blocks</p>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom section */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-            <p>
-              © {currentYear} Flying Drone Pig ($FDP). All rights reserved.
-            </p>
-            <div className="flex items-center gap-4">
-              <p className="text-xs">Built with 🚀 for the herd</p>
-              <div className="flex gap-4">
-                <a
-                  href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-smooth"
-                >
-                  Pump.fun
-                </a>
-                <span>•</span>
-                <a
-                  href="https://dexscreener.com/solana/Bb91m32WUmYPe7qwwNB4vB757dXfRXuEHRho14KLWo2D"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-smooth"
-                >
-                  Chart
-                </a>
-              </div>
-            </div>
-          </div>
+        <div className="space-y-6 md:space-y-0 md:flex md:justify-between md:items-center">
+          {/* Copyright */}
+          <p className="text-sm text-gray-500">
+            © {currentYear} Flying Drone Pig ($FDP). All rights reserved. When pigs fly, history is made.
+          </p>
+
+          {/* Credit */}
+          <p className="text-xs text-gray-600">
+            Built with <span className="text-accent-pink">🚀</span> for the herd
+          </p>
         </div>
       </div>
-
-      {/* Floating pig easter egg */}
-      <style>{`
-        @keyframes float-around {
-          0%, 100% {
-            transform: translateX(0) translateY(0);
-          }
-          25% {
-            transform: translateX(20px) translateY(-10px);
-          }
-          50% {
-            transform: translateX(-10px) translateY(-20px);
-          }
-          75% {
-            transform: translateX(-20px) translateY(0);
-          }
-        }
-
-        .animate-float-around {
-          animation: float-around 6s ease-in-out infinite;
-        }
-      `}</style>
     </footer>
   );
 }

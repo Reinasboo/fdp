@@ -71,16 +71,15 @@ export default function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-20 md:py-32 w-full bg-gradient-to-b from-transparent via-purple-600/5 to-transparent">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="mb-16 animate-slide-in-up">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
-            <span className="text-gradient-pink-blue">Gallery</span>
+    <section id="gallery" className="w-full py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header */}
+        <div className="max-w-3xl mb-20 animate-slide-in-up">
+          <span className="inline-block px-4 py-2 bg-accent-pink/10 border border-accent-pink/30 rounded-full text-sm font-bold text-accent-pink uppercase tracking-widest mb-6">Gallery</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+            <span>Visual Journey</span> <span className="text-gradient-pink-blue">Across Time</span>
           </h2>
-          <p className="text-gray-400 text-lg">
-            Visual moments from the Flying Drone Pig journey
-          </p>
+          <p className="text-lg md:text-xl text-gray-400">Iconic moments from the Flying Drone Pig's extraordinary flight. Swipe, scroll, or use arrows to explore.</p>
         </div>
 
         {/* Gallery carousel container */}
@@ -88,16 +87,16 @@ export default function Gallery() {
           {/* Left scroll button */}
           <button
             onClick={() => scroll('left')}
-            className={`absolute left-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-gradient-to-r from-accent-pink to-accent-blue text-white transition-all duration-300 ${
+            className={`absolute -left-6 md:left-0 top-1/2 transform -translate-y-1/2 z-20 p-3 md:p-4 rounded-full border-2 transition-all duration-300 ${
               canScrollLeft
-                ? 'opacity-100 hover:shadow-lg hover:shadow-pink-500/50'
-                : 'opacity-30 cursor-not-allowed'
+                ? 'border-accent-pink text-accent-pink hover:bg-accent-pink/10 hover:shadow-lg hover:shadow-pink-500/30'
+                : 'border-gray-700 text-gray-600 cursor-not-allowed opacity-40'
             }`}
             disabled={!canScrollLeft}
             aria-label="Scroll left"
           >
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5 md:w-6 md:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -114,16 +113,16 @@ export default function Gallery() {
           {/* Right scroll button */}
           <button
             onClick={() => scroll('right')}
-            className={`absolute right-0 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-pink text-white transition-all duration-300 ${
+            className={`absolute -right-6 md:right-0 top-1/2 transform -translate-y-1/2 z-20 p-3 md:p-4 rounded-full border-2 transition-all duration-300 ${
               canScrollRight
-                ? 'opacity-100 hover:shadow-lg hover:shadow-blue-500/50'
-                : 'opacity-30 cursor-not-allowed'
+                ? 'border-accent-blue text-accent-blue hover:bg-accent-blue/10 hover:shadow-lg hover:shadow-blue-500/30'
+                : 'border-gray-700 text-gray-600 cursor-not-allowed opacity-40'
             }`}
             disabled={!canScrollRight}
             aria-label="Scroll right"
           >
             <svg
-              className="w-6 h-6"
+              className="w-5 h-5 md:w-6 md:h-6"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -145,7 +144,7 @@ export default function Gallery() {
             className="overflow-x-auto scrollbar-hide"
             style={{ scrollBehavior: 'smooth' }}
           >
-          <div className="flex gap-6 pb-4 px-16 sm:px-12 md:px-0">
+            <div className="flex gap-6 pb-4 px-8 md:px-0">
               {galleryImages.map((image, index) => (
                 <div
                   key={image.id}
@@ -153,7 +152,7 @@ export default function Gallery() {
                   style={{ animationDelay: `${index * 0.05}s` }}
                 >
                   {/* Image card */}
-                  <div className="relative group/image w-80 h-96 rounded-xl overflow-hidden glass hover:border-accent-blue/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
+                  <div className="relative group/image w-72 md:w-80 h-80 md:h-96 rounded-2xl overflow-hidden border border-gray-800/50 hover:border-accent-blue/50 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20">
                     {/* Actual image */}
                     <Image
                       src={image.url}
@@ -164,18 +163,16 @@ export default function Gallery() {
                     />
 
                     {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <h3 className="text-lg font-bold text-white">{image.title}</h3>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <div>
+                        <h3 className="text-lg md:text-xl font-bold text-white">{image.title}</h3>
+                        <p className="text-sm text-gray-300 mt-2">Photo #{image.id} · Click to view</p>
+                      </div>
                     </div>
-
-                    {/* Border glow effect */}
-                    <div className="absolute inset-0 rounded-xl border border-gradient-pink-blue opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 pointer-events-none" style={{
-                      borderImage: 'linear-gradient(135deg, #ff006e, #00d9ff) 1'
-                    }}></div>
                   </div>
 
                   {/* Image title below */}
-                  <p className="mt-4 text-center text-sm font-semibold text-gray-300">
+                  <p className="mt-4 text-center text-xs md:text-sm font-semibold text-gray-400 uppercase tracking-wider">
                     {image.title}
                   </p>
                 </div>
@@ -185,14 +182,22 @@ export default function Gallery() {
         </div>
 
         {/* Usage instructions */}
-        <div className="mt-12 glass rounded-lg p-6">
-          <div className="flex gap-3">
-            <div className="text-2xl">👆</div>
+        <div className="mt-16 border border-gray-800/50 rounded-2xl p-6 md:p-8 bg-gray-900/30 backdrop-blur">
+          <div className="flex gap-4">
+            <div className="text-3xl flex-shrink-0">📱</div>
             <div>
-              <h4 className="font-bold text-white mb-1">How to browse</h4>
-              <p className="text-sm text-gray-400">
-                Use arrow buttons to scroll • Drag horizontally • Or swipe on mobile • Hover to see image titles in high resolution
-              </p>
+              <h4 className="font-bold text-lg text-white mb-3">How to explore</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="text-sm text-gray-300">
+                  <span className="text-accent-blue font-semibold">← → Arrows:</span> Navigate left and right
+                </div>
+                <div className="text-sm text-gray-300">
+                  <span className="text-accent-pink font-semibold">Drag:</span> Click and drag horizontally
+                </div>
+                <div className="text-sm text-gray-300">
+                  <span className="text-accent-gold font-semibold">Swipe:</span> Touch and swipe on mobile
+                </div>
+              </div>
             </div>
           </div>
         </div>

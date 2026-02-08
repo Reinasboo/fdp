@@ -3,144 +3,126 @@
 export default function Community() {
   const communityLinks = [
     {
-      name: 'X (Twitter) Community',
-      description: 'Join the herd. Watch pigs fly.',
+      name: 'X (Twitter)',
+      description: 'Join the herd. Follow updates and connect with fellow believers.',
       url: 'https://x.com/i/communities/2019793810058838275',
       icon: '𝕏',
-      color: 'from-gray-800 to-gray-900',
-      hoverColor: 'hover:shadow-gray-500/50',
+      accentColor: 'accent-gray-400',
     },
     {
       name: 'Solana Ecosystem',
-      description: 'Built on the fastest blockchain',
+      description: 'Discover the fastest blockchain powering Flying Drone Pig.',
       url: 'https://solana.com',
       icon: '⛓️',
-      color: 'from-purple-800 to-purple-900',
-      hoverColor: 'hover:shadow-purple-500/50',
+      accentColor: 'accent-purple-400',
     },
     {
       name: 'Pump.fun',
-      description: 'Trade and discover new tokens',
+      description: 'Trade $FDP tokens and participate in the journey.',
       url: 'https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump',
       icon: '🛒',
-      color: 'from-pink-800 to-pink-900',
-      hoverColor: 'hover:shadow-pink-500/50',
+      accentColor: 'accent-pink',
     },
     {
       name: 'DEXscreener',
-      description: 'Real-time charts and analytics',
+      description: 'Track real-time charts, analytics, and trading data.',
       url: 'https://dexscreener.com/solana/Bb91m32WUmYPe7qwwNB4vB757dXfRXuEHRho14KLWo2D',
       icon: '📊',
-      color: 'from-blue-800 to-blue-900',
-      hoverColor: 'hover:shadow-blue-500/50',
+      accentColor: 'accent-blue',
     },
   ];
 
   return (
-    <section className="py-20 md:py-32 w-full bg-gradient-to-b from-transparent via-purple-600/5 to-transparent relative overflow-hidden">
-      {/* Decorative top border */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-accent-pink to-transparent opacity-30"></div>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section header */}
-        <div className="text-center mb-16 animate-slide-in-up">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">
-            <span className="text-gradient-pink-blue">Join the Herd</span>
+    <section className="w-full py-24 md:py-32">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Header */}
+        <div className="max-w-3xl mb-20 animate-slide-in-up">
+          <span className="inline-block px-4 py-2 bg-accent-pink/10 border border-accent-pink/30 rounded-full text-sm font-bold text-accent-pink uppercase tracking-widest mb-6">Community</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
+            <span>Join the</span> <span className="text-gradient-pink-blue">Herd</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Connect with the Flying Drone Pig community and stay updated on all things $FDP
-          </p>
+          <p className="text-lg md:text-xl text-gray-400">Connect with thousands of believers building the Flying Drone Pig community on Solana's fastest blockchain.</p>
         </div>
 
         {/* Community cards grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20">
           {communityLinks.map((link, index) => (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`group relative overflow-hidden rounded-xl p-8 transition-all duration-300 hover:scale-105 animate-slide-in-up ${
-                link.hoverColor
-              }`}
+              className="group relative border border-gray-800/50 rounded-2xl p-8 md:p-10 transition-all duration-300 hover:border-accent-pink/50 hover:bg-gray-900/40 animate-slide-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Background gradient */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-80`}></div>
+              {/* Icon */}
+              <div className="text-5xl md:text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">{link.icon}</div>
 
-              {/* Glass effect overlay */}
-              <div className="absolute inset-0 bg-white/5 backdrop-filter backdrop-blur-md border border-white/10"></div>
+              {/* Title */}
+              <h3 className="text-xl md:text-2xl font-black text-white mb-3 group-hover:text-accent-pink transition-colors duration-300">
+                {link.name}
+              </h3>
 
-              {/* Content */}
-              <div className="relative z-10 space-y-4">
-                {/* Icon */}
-                <div className="text-6xl">{link.icon}</div>
+              {/* Description */}
+              <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed">
+                {link.description}
+              </p>
 
-                {/* Title */}
-                <h3 className="text-xl lg:text-2xl font-bold text-white leading-tight">
-                  {link.name}
-                </h3>
-
-                {/* Description */}
-                <p className="text-sm text-white/80">
-                  {link.description}
-                </p>
-
-                {/* Arrow indicator */}
-                <div className="pt-4 flex items-center gap-2 text-white/70 group-hover:text-white transition-colors">
-                  <span className="text-sm font-semibold">Visit Now</span>
-                  <svg
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                <div className="absolute inset-0 bg-white/10 rounded-xl"></div>
+              {/* Arrow indicator */}
+              <div className="pt-4 border-t border-gray-800/50 flex items-center gap-2 text-gray-400 group-hover:text-accent-pink transition-colors duration-300">
+                <span className="text-xs md:text-sm font-bold uppercase tracking-wider">Visit</span>
+                <svg
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
               </div>
             </a>
           ))}
         </div>
 
-        {/* Call to action box */}
-        <div className="mt-16 max-w-3xl mx-auto">
-          <div className="glass rounded-xl p-10 text-center border border-accent-gold/30 bg-gradient-to-br from-amber-900/20 to-transparent">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Ready to fly?
-            </h3>
-            <p className="text-gray-400 mb-8 text-lg">
-              The herd is growing. Join thousands of believers who think flying pigs can make fortunes.
-            </p>
-            <a
-              href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4 bg-gradient-to-r from-accent-pink to-accent-blue text-white font-bold rounded-lg hover:shadow-lg hover:shadow-pink-500/50 transition-smooth"
-            >
-              Get $FDP Now
-            </a>
+        {/* Call to action section */}
+        <div className="max-w-4xl mx-auto mb-20">
+          <div className="border border-accent-gold/30 rounded-2xl p-8 md:p-12 bg-gradient-to-br from-gray-900/80 via-gray-900/40 to-transparent">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div>
+                <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
+                  Ready to <span className="text-accent-gold">Fly?</span>
+                </h3>
+                <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+                  The herd is growing. Join thousands of believers who think flying pigs can create extraordinary wealth.
+                </p>
+                <a
+                  href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-8 md:px-10 py-4 md:py-5 bg-accent-gold text-black font-black rounded-xl hover:bg-accent-gold/90 transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/30 uppercase tracking-wider text-sm md:text-base"
+                >
+                  Get $FDP Now
+                </a>
+              </div>
+              <div className="text-6xl md:text-8xl text-center opacity-20">🐷</div>
+            </div>
           </div>
         </div>
 
-        {/* Fun fact */}
-        <div className="mt-12 max-w-2xl mx-auto text-center">
-          <div className="glass rounded-lg p-6">
-            <p className="text-sm text-gray-400 mb-2">🐷 Did you know?</p>
-            <p className="text-white font-semibold">
-              The community grows every time someone believes that pigs can fly. You could be next.
-            </p>
+        {/* Community stats / Fun fact */}
+        <div className="border border-gray-800/50 rounded-2xl p-8 md:p-10 bg-gray-900/30 text-center">
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="text-2xl">🐷</span>
+            <span className="text-sm font-bold text-gray-500 uppercase tracking-wider">Community Fact</span>
           </div>
+          <p className="text-lg md:text-xl text-white font-semibold max-w-2xl mx-auto">
+            Every time someone believes that pigs can fly on Solana, the herd grows stronger. Will you be next?
+          </p>
         </div>
       </div>
     </section>

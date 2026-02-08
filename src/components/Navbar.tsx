@@ -7,48 +7,44 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 w-full z-50 glass">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-gray-800/50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <a href="#home" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <Image
               src="https://i.imgur.com/0jsGt7u.png"
               alt="FDP Logo"
-              width={40}
-              height={40}
+              width={48}
+              height={48}
               className="animate-float"
             />
             <div className="hidden sm:block">
-              <h1 className="text-lg md:text-xl font-bold text-gradient-pink-blue">
-                $FDP
-              </h1>
-              <p className="text-xs text-gray-500">Flying Drone Pig</p>
+              <div className="text-lg font-black text-gradient-pink-blue">$FDP</div>
+              <div className="text-xs text-gray-500 font-medium tracking-wide">FLYING DRONE PIG</div>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-gray-400 hover:text-white transition-smooth">
-              Home
-            </a>
-            <a href="#news" className="text-gray-400 hover:text-white transition-smooth">
-              News
-            </a>
-            <a href="#quotes" className="text-gray-400 hover:text-white transition-smooth">
-              Quotes
-            </a>
-            <a href="#gallery" className="text-gray-400 hover:text-white transition-smooth">
-              Gallery
-            </a>
-            <a href="#token" className="text-gray-400 hover:text-white transition-smooth">
-              Token
-            </a>
+          <div className="hidden md:flex items-center gap-12">
+            <nav className="flex items-center gap-8">
+              {['Home', 'Story', 'Wisdom', 'Gallery', 'Token', 'Community'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-sm font-semibold text-gray-400 hover:text-white transition-colors duration-300 relative group"
+                >
+                  {item}
+                  <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-accent-pink to-accent-blue scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+                </a>
+              ))}
+            </nav>
+
             <a
               href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2 bg-gradient-to-r from-pink-600 to-blue-600 rounded-full text-white font-semibold hover:shadow-lg hover:shadow-pink-500/50 transition-smooth"
+              className="px-8 py-3 bg-gradient-to-r from-accent-pink to-accent-blue text-white font-bold rounded-lg hover:shadow-xl hover:shadow-pink-500/50 transition-all duration-300 text-sm uppercase tracking-wide"
             >
               Buy $FDP
             </a>
@@ -57,28 +53,13 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-700 transition-smooth"
+            className="md:hidden p-2 rounded-lg hover:bg-gray-900 transition-colors"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               )}
             </svg>
           </button>
@@ -86,27 +67,24 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 animate-slide-in-up">
-            <a href="#home" className="block py-2 text-gray-400 hover:text-white transition-smooth">
-              Home
-            </a>
-            <a href="#news" className="block py-2 text-gray-400 hover:text-white transition-smooth">
-              News
-            </a>
-            <a href="#quotes" className="block py-2 text-gray-400 hover:text-white transition-smooth">
-              Quotes
-            </a>
-            <a href="#gallery" className="block py-2 text-gray-400 hover:text-white transition-smooth">
-              Gallery
-            </a>
-            <a href="#token" className="block py-2 text-gray-400 hover:text-white transition-smooth">
-              Token
-            </a>
+          <div className="md:hidden pb-6 border-t border-gray-800/50 pt-4 animate-slide-in-up">
+            <nav className="flex flex-col gap-3">
+              {['Home', 'Story', 'Wisdom', 'Gallery', 'Token', 'Community'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="text-sm font-semibold text-gray-400 hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-gray-900"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item}
+                </a>
+              ))}
+            </nav>
             <a
               href="https://pump.fun/coin/5vS2ssBmYzSYU3GVX2nNhsXNW1JTUX56mwaRX5m6pump"
               target="_blank"
               rel="noopener noreferrer"
-              className="block mt-4 px-6 py-2 bg-gradient-to-r from-pink-600 to-blue-600 rounded-full text-white font-semibold text-center hover:shadow-lg hover:shadow-pink-500/50 transition-smooth"
+              className="mt-4 block px-6 py-3 bg-gradient-to-r from-accent-pink to-accent-blue text-white font-bold rounded-lg text-center text-sm uppercase tracking-wide"
             >
               Buy $FDP
             </a>

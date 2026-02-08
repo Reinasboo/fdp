@@ -38,19 +38,31 @@ export default function TokenInfo() {
   ];
 
   return (
-    <section id="token" className="w-full py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="token" className="w-full py-24 md:py-32 relative overflow-hidden">
+      {/* Ambient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-subtle-float"></div>
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-20 animate-slide-in-up">
-          <span className="inline-block px-4 py-2 bg-accent-blue/10 border border-accent-blue/30 rounded-full text-sm font-bold text-accent-blue uppercase tracking-widest mb-6">Token</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-            <span>Essential</span> <span className="text-gradient-pink-blue">Information</span>
+        <div className="max-w-3xl mb-20 animate-slide-fade">
+          <div className="inline-block group mb-6">
+            <span className="relative inline-block px-4 py-2 bg-gradient-to-r from-accent-blue/15 to-accent-cyan/15 border border-accent-blue/40 rounded-full text-xs font-bold text-accent-blue uppercase tracking-widest group-hover:border-accent-blue/60 transition-colors duration-300">
+              💎 Token Details
+            </span>
+            <div className="absolute inset-0 rounded-full bg-accent-blue/10 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6">
+            <span>Essential</span>
+            <span className="block bg-gradient-to-r from-accent-pink via-accent-blue to-accent-cyan bg-clip-text text-transparent mt-2">Information</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400">Complete details about $FDP on the Solana blockchain, with easy access to contract information and trading platforms.</p>
         </div>
 
         {/* Main content grid */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid lg:grid-cols-2 gap-12 mb-16 animate-slide-fade" style={{ animationDelay: '0.1s' }}>
           {/* Left side - Token details grid */}
           <div className="space-y-4 animate-slide-in-up">
             {tokenDetails.map((detail, index) => (

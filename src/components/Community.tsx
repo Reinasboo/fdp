@@ -33,19 +33,31 @@ export default function Community() {
   ];
 
   return (
-    <section className="w-full py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section className="w-full py-24 md:py-32 relative overflow-hidden">
+      {/* Ambient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent-magenta/10 rounded-full blur-3xl animate-subtle-float"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-pink/10 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-3xl mb-20 animate-slide-in-up">
-          <span className="inline-block px-4 py-2 bg-accent-pink/10 border border-accent-pink/30 rounded-full text-sm font-bold text-accent-pink uppercase tracking-widest mb-6">Community</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-            <span>Join the</span> <span className="text-gradient-pink-blue">Herd</span>
+        <div className="max-w-3xl mb-20 animate-slide-fade">
+          <div className="inline-block group mb-6">
+            <span className="relative inline-block px-4 py-2 bg-gradient-to-r from-accent-pink/15 to-accent-blue/15 border border-accent-pink/40 rounded-full text-xs font-bold text-accent-pink uppercase tracking-widest group-hover:border-accent-pink/60 transition-colors duration-300">
+              👥 Join the Herd
+            </span>
+            <div className="absolute inset-0 rounded-full bg-accent-pink/10 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6">
+            <span>Join the</span>
+            <span className="block bg-gradient-to-r from-accent-pink via-accent-blue to-accent-cyan bg-clip-text text-transparent mt-2">Herd</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400">Connect with thousands of believers building the Flying Drone Pig community on Solana's fastest blockchain.</p>
         </div>
 
         {/* Community cards grid */}
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20 animate-slide-fade" style={{ animationDelay: '0.1s' }}>
           {communityLinks.map((link, index) => (
             <a
               key={link.name}

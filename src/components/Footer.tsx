@@ -6,8 +6,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full bg-black border-t border-gray-800/50 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <footer className="w-full bg-black border-t border-gray-800/30 py-16 md:py-24 relative overflow-hidden">
+      {/* Ambient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-accent-pink/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl" style={{ animationDelay: '1s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Main footer grid */}
         <div className="grid md:grid-cols-5 gap-10 md:gap-12 mb-16 pb-16 border-b border-gray-800/50">
           {/* Brand column */}

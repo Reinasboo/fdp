@@ -56,19 +56,31 @@ export default function Quotes() {
   const visibleIndices = getVisibleIndices();
 
   return (
-    <section id="wisdom" className="w-full py-24 md:py-32">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+    <section id="wisdom" className="w-full py-24 md:py-32 relative overflow-hidden">
+      {/* Ambient background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-0 w-96 h-96 bg-accent-magenta/10 rounded-full blur-3xl animate-subtle-float"></div>
+        <div className="absolute bottom-1/3 right-0 w-96 h-96 bg-accent-cyan/10 rounded-full blur-3xl animate-subtle-float" style={{ animationDelay: '1.5s' }}></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* Header */}
-        <div className="max-w-2xl mb-20 animate-slide-in-up">
-          <span className="inline-block px-4 py-2 bg-accent-gold/10 border border-accent-gold/30 rounded-full text-sm font-bold text-accent-gold uppercase tracking-widest mb-6">Wisdom</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-            <span className="text-gradient-gold">Words That Resonate</span>
+        <div className="max-w-3xl mb-20 animate-slide-fade">
+          <div className="inline-block group mb-6">
+            <span className="relative inline-block px-4 py-2 bg-gradient-to-r from-accent-gold/15 to-accent-gold/25 border border-accent-gold/40 rounded-full text-xs font-bold text-accent-gold uppercase tracking-widest group-hover:border-accent-gold/60 transition-colors duration-300">
+              ✨ Wisdom from the Herd
+            </span>
+            <div className="absolute inset-0 rounded-full bg-accent-gold/10 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] mb-6">
+            <span>Words That</span>
+            <span className="block bg-gradient-to-r from-accent-gold via-accent-pink to-accent-blue bg-clip-text text-transparent mt-2">Resonate</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-400">Inspiration from believers who understand that the impossible is just tomorrow's reality.</p>
         </div>
 
         {/* Quote Carousel */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto animate-slide-fade" style={{ animationDelay: '0.1s' }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {visibleIndices.map((index, position) => {
               const quote = quotes[index];

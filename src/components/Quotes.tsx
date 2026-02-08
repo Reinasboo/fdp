@@ -100,12 +100,7 @@ export default function Quotes() {
                       </p>
                     </blockquote>
 
-                    {/* Author */}
-                    <p className={`${
-                      isCenter ? 'text-accent-gold text-base' : 'text-gray-500 text-sm'
-                    } font-bold uppercase tracking-wider transition-all duration-500`}>
-                      — {quote.author}
-                    </p>
+
 
                     {/* Corner accent */}
                     {isCenter && (
